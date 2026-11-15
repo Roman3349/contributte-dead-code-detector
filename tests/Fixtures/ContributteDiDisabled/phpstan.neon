@@ -1,0 +1,13 @@
+includes:
+	- ../base.neon
+
+parameters:
+	tmpDir: ../../tmp/phpstan/ContributteDiDisabled
+	contributteDeadCode:
+		di:
+			enabled: false
+	shipmonkDeadCode:
+		usageProviders:
+			nette:
+				containerNeonPaths:
+					- %currentWorkingDirectory%/tests/Fixtures/ContributteDiDisabled/resources.neon

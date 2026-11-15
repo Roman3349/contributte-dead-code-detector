@@ -1,0 +1,10 @@
+extensions:
+	api: Apitte\Core\DI\ApiExtension
+
+api:
+	plugins:
+		Apitte\Core\DI\Plugin\CoreMappingPlugin:
+			types:
+				money: Tests\Fixtures\Apitte\MoneyTypeMapper
+			request:
+				validator: Tests\Fixtures\Apitte\CustomValidator(@someService)

@@ -1,0 +1,11 @@
+includes:
+	- ../base.neon
+
+parameters:
+	tmpDir: ../../tmp/phpstan/Apitte
+
+	shipmonkDeadCode:
+		usageProviders:
+			nette:
+				containerNeonPaths:
+					- %currentWorkingDirectory%/tests/Fixtures/Apitte/api.neon

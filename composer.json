@@ -1,0 +1,64 @@
+{
+  "name": "contributte/dead-code-detector",
+  "description": "Contributte support for shipmonk/dead-code-detector PHPStan extension (Apitte, Contributte DI).",
+  "keywords": [
+    "phpstan",
+    "dead code",
+    "unused code",
+    "apitte",
+    "nette",
+    "contributte"
+  ],
+  "type": "phpstan-extension",
+  "license": "MIT",
+  "homepage": "https://github.com/contributte/dead-code-detector",
+  "authors": [
+    {
+      "name": "Roman Ondráček",
+      "homepage": "https://github.com/Roman3349"
+    }
+  ],
+  "require": {
+    "php": ">=8.2",
+    "nette/neon": "^3.4",
+    "phpstan/phpstan": "^2.1.41",
+    "shipmonk/dead-code-detector": "^1.4"
+  },
+  "require-dev": {
+    "contributte/apitte": "^0.14",
+    "contributte/di": "^0.6",
+    "contributte/phpstan": "^0.3.1",
+    "contributte/qa": "^0.4",
+    "contributte/tester": "^0.4.1",
+    "latte/latte": "^3.0",
+    "nette/application": "^3.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Contributte\\DeadCodeDetector\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "sort-packages": true,
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.1.x-dev"
+    },
+    "phpstan": {
+      "includes": [
+        "extension.neon"
+      ]
+    }
+  }
+}

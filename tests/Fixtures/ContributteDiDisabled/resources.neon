@@ -1,0 +1,10 @@
+extensions:
+	autoload: Contributte\DI\Extension\ResourceExtension
+
+autoload:
+	resources:
+		Tests\Fixtures\ContributteDiDisabled\Services\:
+			paths:
+				- %appDir%/Services
+			excludes:
+				- Tests\Fixtures\ContributteDiDisabled\Services\Excluded\

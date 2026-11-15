@@ -1,0 +1,52 @@
+parameters:
+	contributteDeadCode:
+		apitte:
+			enabled: null
+		di:
+			enabled: null
+		latte:
+			enabled: null
+			templatePaths: []
+
+parametersSchema:
+	contributteDeadCode: structure([
+		apitte: structure([
+			enabled: schema(bool(), nullable())
+		])
+		di: structure([
+			enabled: schema(bool(), nullable())
+		])
+		latte: structure([
+			enabled: schema(bool(), nullable())
+			templatePaths: listOf(string())
+		])
+	])
+
+expandRelativePaths:
+	- '[parameters][contributteDeadCode][latte][templatePaths]'
+
+services:
+	-
+		class: Contributte\DeadCodeDetector\Provider\ApitteUsageProvider
+		tags:
+			- shipmonk.deadCode.memberUsageProvider
+		arguments:
+			enabled: %contributteDeadCode.apitte.enabled%
+			containerNeonPaths: %shipmonkDeadCode.usageProviders.nette.containerNeonPaths%
+
+	-
+		class: Contributte\DeadCodeDetector\Provider\ContributteDiUsageProvider
+		tags:
+			- shipmonk.deadCode.memberUsageProvider
+		arguments:
+			enabled: %contributteDeadCode.di.enabled%
+			containerNeonPaths: %shipmonkDeadCode.usageProviders.nette.containerNeonPaths%
+
+	-
+		class: Contributte\DeadCodeDetector\Provider\LatteUsageProvider
+		tags:
+			- shipmonk.deadCode.memberUsageProvider
+		arguments:
+			enabled: %contributteDeadCode.latte.enabled%
+			analysedPaths: %analysedPaths%
+			templatePaths: %contributteDeadCode.latte.templatePaths%

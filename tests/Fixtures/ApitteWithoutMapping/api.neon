@@ -1,0 +1,6 @@
+extensions:
+	api: Apitte\Core\DI\ApiExtension
+
+api:
+	plugins:
+		Apitte\Core\DI\Plugin\CoreDecoratorPlugin:
